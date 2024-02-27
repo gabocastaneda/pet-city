@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modificar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="imgs/logo.svg">
+</head>
+
+<body>
+    <div class="container text-center mt-5">
+        <h1>PET-CITY</h1>
+    </div>
+    <!--busca usuario-->
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                </svg> Modificar usuario</h5>
+            <div class="card-body">
+                <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg> Usuario</h5>
+                <br>
+                <form class="row g-3 needs-validation" novalidate id="formulario_busca_usuario" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="correo_usuario"
+                                    placeholder="text@example.com" required>
+                                <div class="invalid-feedback">
+                                    Escriba su correo electronico
+                                </div>
+                                <label for="correo_usuario">Correo electronico</label>
+                            </div>
+                        </div>
+                        <div class="container text-center">
+                            <div class="row row-cols-auto">
+                                <div class="col"><button type="button" class="btn btn-outline-primary"
+                                        id="Buscar_usuario" onclick="buscarUsuario();"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                        </svg> Buscar</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--Formulario del usuario-->
+    <div class="container" id="formulario_modifica_usuario" style="display: none;">
+        <div class="card">
+            <h5 class="card-header">Modificación de cliente</h5>
+            <div class="card-body">
+                <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg> Información del usuario</h5>
+                <br>
+                <form class="row g-3 needs-validation" novalidate id="formulario_usuario" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nombre" placeholder="Juan" required>
+                                <div class="invalid-feedback">
+                                    Escriba su(s) nombre(s)
+                                </div>
+                                <label for="nombre">Nombre(s)</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="apellido_p" placeholder="Perez" required>
+                                <div class="invalid-feedback">
+                                    Escriba su apellido paterno
+                                </div>
+                                <label for="apellido_p">Apellido paterno</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="apellido_m" placeholder="Lopez" required>
+                                <div class="invalid-feedback">
+                                    Escriba su apellido materno
+                                </div>
+                                <label for="apellido_m">Apellido materno</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="edad" placeholder="" min="18" max="100"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Ingrese un valor numerico
+                                </div>
+                                <label for="cantidad">Edad</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="tel" class="form-control" id="telefono" placeholder="55-5555 5555"
+                                    maxlength="10" required>
+                                <div class="invalid-feedback">
+                                    Escriba su numero telefonico
+                                </div>
+                                <label for="telefono">Numero de contacto</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="correo" placeholder="text@example.com"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Escriba su correo electronico
+                                </div>
+                                <label for="apellido_m">Correo electronico</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="calle" placeholder="Tepic" required>
+                                <div class="invalid-feedback">
+                                    Escriba el nombre de su calle
+                                </div>
+                                <label for="calle">Calle</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="num_ext" placeholder="02" min="00"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Escriba el numero exterior
+                                </div>
+                                <label for="num_ext">No. exterior</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="num_int" min="00" placeholder="25">
+                                <label for="num_int">No. interior</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="colonia" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Escriba su colonia
+                                </div>
+                                <label for="colonia">Colonia</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="mun_del" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Escriba su municipio o delegación
+                                </div>
+                                <label for="ent-fed">Municipio o delegación</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="ent-fed" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Escriba su entidad federativa
+                                </div>
+                                <label for="ent-fed">Entidad federativa</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="codigo_postal" placeholder="" maxlength="5"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Escriba su codigo postal
+                                </div>
+                                <label for="ent-fed">Codigo postal</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container text-center">
+                        <div class="row row-cols-auto">
+                            <div class="col"><button type="submit" class="btn btn-outline-primary" id="modificar"
+                                    onclick="confirmar_usuario()">Modificar</button></div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--busca mascota-->
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                </svg> Modificar mascota</h5>
+            <div class="card-body">
+                <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">
+                        <path
+                            d="M15.807.531c-.174-.177-.41-.289-.64-.363a3.8 3.8 0 0 0-.833-.15c-.62-.049-1.394 0-2.252.175C10.365.545 8.264 1.415 6.315 3.1S3.147 6.824 2.557 8.523c-.294.847-.44 1.634-.429 2.268.005.316.05.62.154.88q.025.061.056.122A68 68 0 0 0 .08 15.198a.53.53 0 0 0 .157.72.504.504 0 0 0 .705-.16 68 68 0 0 1 2.158-3.26c.285.141.616.195.958.182.513-.02 1.098-.188 1.723-.49 1.25-.605 2.744-1.787 4.303-3.642l1.518-1.55a.53.53 0 0 0 0-.739l-.729-.744 1.311.209a.5.5 0 0 0 .443-.15l.663-.684c.663-.68 1.292-1.325 1.763-1.892.314-.378.585-.752.754-1.107.163-.345.278-.773.112-1.188a.5.5 0 0 0-.112-.172M3.733 11.62C5.385 9.374 7.24 7.215 9.309 5.394l1.21 1.234-1.171 1.196-.027.03c-1.5 1.789-2.891 2.867-3.977 3.393-.544.263-.99.378-1.324.39a1.3 1.3 0 0 1-.287-.018Zm6.769-7.22c1.31-1.028 2.7-1.914 4.172-2.6a7 7 0 0 1-.4.523c-.442.533-1.028 1.134-1.681 1.804l-.51.524zm3.346-3.357C9.594 3.147 6.045 6.8 3.149 10.678c.007-.464.121-1.086.37-1.806.533-1.535 1.65-3.415 3.455-4.976 1.807-1.561 3.746-2.36 5.31-2.68a8 8 0 0 1 1.564-.173" />
+                    </svg> Mascota</h5>
+                <form class="row g-3 needs-validation" novalidate id="formulario_busca_mascota" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="correo_mascota"
+                                    placeholder="text@example.com" required>
+                                <div class="invalid-feedback">
+                                    Escriba su correo electronico
+                                </div>
+                                <label for="correo_mascota">Correo electronico</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nombre_mascota" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Escriba el nombre de la mascota
+                                </div>
+                                <label for="nombre_mascota">Nombre mascota</label>
+                            </div>
+                        </div>
+                        <div class="container text-center">
+                            <div class="row row-cols-auto">
+                                <div class="col"><button type="button" class="btn btn-outline-primary"
+                                        id="Buscar_mascota" onclick="buscarMascota();"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                        </svg> Buscar</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--Aqui va el formulario de la mascota-->
+    <div class="container" id="formulario_modifica_mascota" style="display: none;">
+        <div class="card">
+            <h5 class="card-header">Registro de otra mascota</h5>
+            <div class="card-body">
+                <form class="row g-3 needs-validation" novalidate id="formulario_mascota" method="post">
+                    <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-postcard-heart-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm6 2.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0m3.5.878c1.482-1.42 4.795 1.392 0 4.622-4.795-3.23-1.482-6.043 0-4.622M2 5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5" />
+                        </svg> Información de la mascota</h5>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nombre_mascota" placeholder="Luke" required>
+                                <div class="invalid-feedback">
+                                    Escriba el nombre de su mascota
+                                </div>
+                                <label for="nombre">Nombre</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="edad_mascota" placeholder="" min="0"
+                                    max="35" required>
+                                <div class="invalid-feedback">
+                                    Ingrese un valor numerico
+                                </div>
+                                <label for="edad_mascota">Edad</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="">¿Puede convivir con otra mascota?</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="convivencia" id="convivencia_si"
+                                    value="si">
+                                <label class="form-check-label" for="convivencia_si">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="convivencia" id="convivencia_no"
+                                    value="no">
+                                <label class="form-check-label" for="convivencia_no">No</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="antiguedad">
+                                <label class="form-check-label" for="antiguedad">¿Se ha hospedado antes?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating">
+                                <select class="form-select" name="especie_mascota" id="especie_mascota" required
+                                    onchange="habilitar(this)">
+                                    <option selected disabled value>Abrir este menu</option>
+                                    <option value="perro">Perro</option>
+                                    <option value="gato">Gato</option>
+                                    <option value="conejo">Conejo</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Seleccione una opción valida
+                                </div>
+                                <label for="especie_mascota">Especie</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="especie_mascota_otro" placeholder="Especie"
+                                    disabled>
+                                <div class="invalid-feedback">
+                                    Ingrese la especie de la mascota
+                                </div>
+                                <label for="especie_mascota_otro">Especifique la especie</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="">Desparacitado</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="desparacitado" id="si"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="desparacitado" id="no"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="antiguedad">
+                                <label class="form-check-label" for="antiguedad">¿Cuenta con chip de rastreo?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="fecha" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Seleccione una fecha valida
+                                </div>
+                                <label for="fecha">Fecha de reserva</label>
+                            </div>
+                        </div>
+                        <div class="col" 5>
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="fecha_fin" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Seleccione una fecha valida
+                                </div>
+                                <label for="fecha">Fecha de salida</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--vacunas-->
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="carnet" class="form-label">Suba el carnet de su mascota en formato
+                                    PDF</label>
+                                <input class="form-control" type="file" id="carnet" accept="application/pdf">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="cuidados"
+                                    style="height: 100px"></textarea>
+                                <label for="cuidados">Cuidados especiales</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container text-center">
+                        <div class="row row-cols-auto">
+                            <div class="col"><button type="submit" class="btn btn-outline-primary"
+                                    onclick="confirmar_mascota()">Modificar</button>
+                            </div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="js/validation_modificar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</body>
+
+</html>

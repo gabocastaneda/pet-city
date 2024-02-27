@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Altas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="imgs/logo.svg">
+</head>
+
+<body>
+    <br>
+    <div class="container text-center">
+        <h1>PET - CITY</h1>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header">Registro de otra mascota</h5>
+            <div class="card-body">
+                <form class="row g-3 needs-validation" novalidate id="formulario" method="post">
+                    <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-postcard-heart-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm6 2.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0m3.5.878c1.482-1.42 4.795 1.392 0 4.622-4.795-3.23-1.482-6.043 0-4.622M2 5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5" />
+                        </svg> Información de la mascota</h5>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nombre_mascota" placeholder="Luke" required>
+                                <div class="invalid-feedback">
+                                    Escriba el nombre de su mascota
+                                </div>
+                                <label for="nombre">Nombre</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="edad_mascota" placeholder="" min="0"
+                                    max="35" required>
+                                <div class="invalid-feedback">
+                                    Ingrese un valor numerico
+                                </div>
+                                <label for="edad_mascota">Edad</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="">¿Puede convivir con otra mascota?</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="convivencia" id="convivencia_si"
+                                    value="si">
+                                <label class="form-check-label" for="convivencia_si">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="convivencia" id="convivencia_no"
+                                    value="no">
+                                <label class="form-check-label" for="convivencia_no">No</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="antiguedad">
+                                <label class="form-check-label" for="antiguedad">¿Se ha hospedado antes?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating">
+                                <select class="form-select" name="especie_mascota" id="especie_mascota" required
+                                    onchange="habilitar(this)">
+                                    <option selected disabled value>Abrir este menu</option>
+                                    <option value="perro">Perro</option>
+                                    <option value="gato">Gato</option>
+                                    <option value="conejo">Conejo</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Seleccione una opción valida
+                                </div>
+                                <label for="especie_mascota">Especie</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="especie_mascota_otro" placeholder="Especie"
+                                    disabled>
+                                <div class="invalid-feedback">
+                                    Ingrese la especie de la mascota
+                                </div>
+                                <label for="especie_mascota_otro">Especifique la especie</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="">Desparacitado</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="desparacitado" id="si"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="desparacitado" id="no"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="antiguedad">
+                                <label class="form-check-label" for="antiguedad">¿Cuenta con chip de rastreo?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="fecha" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Seleccione una fecha valida
+                                </div>
+                                <label for="fecha">Fecha de reserva</label>
+                            </div>
+                        </div>
+                        <div class="col" 5>
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="fecha_fin" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Seleccione una fecha valida
+                                </div>
+                                <label for="fecha">Fecha de salida</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--vacunas-->
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="carnet" class="form-label">Suba el carnet de su mascota en formato
+                                    PDF</label>
+                                <input class="form-control" type="file" id="carnet" accept="application/pdf">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here"
+                                    id="cuidados_mascota"></textarea>
+                                <label for="cuidados_mascota">Cuidados especiales</label>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <br>
+        <div class="container text-center">
+            <div class="row row-cols-auto">
+                <div class="col"><button type="submit" class="btn btn-outline-primary"
+                        onclick="confirmar();">Registrar</button></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <br>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="js/validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+
+</html>
